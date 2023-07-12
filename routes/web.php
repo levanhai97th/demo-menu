@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 
@@ -23,3 +24,5 @@ Route::get('/', function () {
 //     return view('menu');
 // });
 Route::get('/menu', [MenuController::class, 'index']);
+Route::get('students', [StudentController::class, 'index']);
+Route::get('students/list', [StudentController::class, 'getStudents'])->name('students.list');

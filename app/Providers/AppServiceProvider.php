@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\Student\StudentRepository;
+use App\Repositories\Student\StudentRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->singleton(
+            StudentRepositoryInterface::class,
+            StudentRepository::class
+        );
     }
 }
